@@ -18,6 +18,7 @@ import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import edu.AGH.DietCalculator.data.Database;
 import edu.AGH.DietCalculator.data.PersonalData;
 
 public class MainGui 
@@ -26,6 +27,7 @@ public class MainGui
 	private Frame mainFrame;
 	private Checkbox pregnancy;
 	PersonalData data;
+	Database database;
 	
 	public static void main(String[] args) {
 		MainGui window = new MainGui();
@@ -35,6 +37,8 @@ public class MainGui
 	MainGui()
 	{
 		data = new PersonalData();
+		database = new Database();
+		database.LoadData("food_data.xml");
 	}
 
 	private void prepareGUI() {

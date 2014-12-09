@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <item id="apple" label="Jablko" mass="20" calories="20" carbohydrate="50" protein="25" fat="5" glycemicIndex="50"/>
+  <item id="orange" label="Pomarancza" mass="20" calories="20" carbohydrate="50" protein="25" fat="5" glycemicIndex="50"/>
+</config>
