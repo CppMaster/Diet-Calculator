@@ -1,14 +1,6 @@
 package edu.AGH.DietCalculator.gui;
 
-import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
-import java.awt.Color;
-import java.awt.Frame;
-import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -48,11 +40,10 @@ public class MainGui
 		mainFrame.setLayout(new GridLayout(8, 0));
 		mainFrame.setBackground(Color.lightGray);
 		mainFrame.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent windowEvent) {
-				System.exit(0);
-			}
-		});
-		mainFrame.setVisible(true);
+            public void windowClosing(WindowEvent windowEvent) {
+                System.exit(0);
+            }
+        });
 		
 		{
 			Panel panel = new Panel();
@@ -114,21 +105,43 @@ public class MainGui
 			
 			mainFrame.add(panel);
 		}
+
+        {
+            Panel panel = new Panel();
+
+            panel.add(new Label("Age [years]"));
+
+            TextField age = new TextField("72");
+            panel.add(age);
+            age.addTextListener(new TextListener() {
+
+                @Override
+                public void textValueChanged(TextEvent arg0) {
+                    data.setAge(Float.parseFloat(((TextField) arg0.getSource()).getText()));
+                }
+            });
+
+            mainFrame.add(panel);
+        }
 		
 		{
 			Panel panel = new Panel();
 			
-			panel.add(new Label("Activity [0-100]"));
+			panel.add(new Label("Exercise"));
 			
-			TextField activity = new TextField("50");
-			panel.add(activity);
-			activity.addTextListener(new TextListener() {
-				
-				@Override
-				public void textValueChanged(TextEvent arg0) {
-					data.setActivity(Float.parseFloat(((TextField)arg0.getSource()).getText()) / 100.f);
-				}
-			});
+			final Choice exercise = new Choice();
+            exercise.add("none");
+            exercise.add("light");
+            exercise.add("moderate");
+            exercise.add("heavy");
+            exercise.add("very heavy");
+			panel.add(exercise);
+			exercise.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    data.setExercise(exercise.getSelectedItem());
+                }
+            });
 			
 			mainFrame.add(panel);
 		}
@@ -177,13 +190,62 @@ public class MainGui
 				}
 			});
 			panel.add(calculateButton);
-			
+
 			mainFrame.add(panel);
 		}
+
+        mainFrame.setVisible(true);
+
 	}
 	
 	public void Calculate()
 	{
+        float weight = data.getWeight();
+        float height = data.getHeight();
+        float age = data.getAge();
+        PersonalData.Gender gender = data.getGender();
+
+        float bmi = CalculateBodyMassIndex(weight, height);
+        float bmr = CalculateBaseMetabolicRate(gender, weight, height, age);
+        float caloriesNeeded = CalculateCaloriesNeeded(bmr, data.getExercise()); //applying the Harris-Benedict Principle
 		System.out.println("Calculate:" + data);
+        System.out.println("BMI: " + bmi);
+        System.out.println("BMR: " + bmr);
+        System.out.println("Calories needed: " + caloriesNeeded);
 	}
+
+    private float CalculateCaloriesNeeded(float bmr, String exercise) {
+        float exerciseFactor = GetExerciseFactor(exercise);
+        return bmr * exerciseFactor;
+    }
+
+    private float GetExerciseFactor(String exercise) {
+        if (exercise.equals("none")) {
+            return 1.2f;
+        } else if (exercise.equals("light")) {
+            return 1.375f;
+        } else if (exercise.equals("moderate")) {
+            return 1.55f;
+        } else if (exercise.equals("heavy")) {
+            return 1.725f;
+        } else if (exercise.equals("very heavy")) {
+            return 1.9f;
+        } else {
+            return 1.2f;
+        }
+    }
+
+    private float CalculateBaseMetabolicRate(PersonalData.Gender gender, float weight, float height, float age) {
+        //based on The Revised Harris-Benedict Equation:
+        if (gender == PersonalData.Gender.Male){
+            return 13.397f * weight + 4.799f * height + 5.667f * age + 88.362f;
+        } else {
+            return 9.247f * weight + 3.098f * height + 4.330f * age + 447.593f;
+        }
+    }
+
+    private float CalculateBodyMassIndex(float weight, float height) {
+        float height_meters = height / 100.0f;
+        return weight / (height_meters * height_meters);
+    }
 }
