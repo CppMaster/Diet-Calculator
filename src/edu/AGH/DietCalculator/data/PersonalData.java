@@ -67,4 +67,28 @@ public class PersonalData {
 				+ ", diabetes=" + diabetes + ", isPregnant=" + isPregnant + "]";
 	}
 	
+	public static float CalculateBaseMetabolicRate(PersonalData.Gender gender, float weight, float height, float age) {
+        //based on The Revised Harris-Benedict Equation:
+        if (gender == PersonalData.Gender.Male){
+            return 13.397f * weight + 4.799f * height + 5.667f * age + 88.362f;
+        } else {
+            return 9.247f * weight + 3.098f * height + 4.330f * age + 447.593f;
+        }
+	}
+	
+	public float CalculateBaseMetabolicRate()
+	{
+		return CalculateBaseMetabolicRate(gender, weight, height, age);
+	}
+
+    public static float CalculateBodyMassIndex(float weight, float height) {
+        float height_meters = height / 100.0f;
+        return weight / (height_meters * height_meters);
+    }
+    
+    public float CalculateBodyMassIndex()
+    {
+    	return CalculateBodyMassIndex(weight, height);
+    }
+	
 }
