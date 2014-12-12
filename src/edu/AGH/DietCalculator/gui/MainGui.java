@@ -20,6 +20,7 @@ public class MainGui
 	private Checkbox pregnancy;
 	PersonalData data;
 	Database database;
+	ResultFrame resultFrame = null;
 	
 	public static void main(String[] args) {
 		MainGui window = new MainGui();
@@ -208,6 +209,12 @@ public class MainGui
         System.out.println("BMI: " + bmi);
         System.out.println("BMR: " + bmr);
         System.out.println("Calories needed: " + caloriesNeeded);
+        
+        //Algorithm
+        
+        if(resultFrame == null) resultFrame = new ResultFrame();
+        resultFrame.SetNeeds(bmi, bmr, caloriesNeeded);
+        resultFrame.SetDiet(database.GetRandomMeals(8));
 	}
 
     private float CalculateCaloriesNeeded(float bmr, String exercise) {

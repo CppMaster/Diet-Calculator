@@ -4,6 +4,10 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Random;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -70,5 +74,18 @@ public class Database {
 			e.printStackTrace();
 		}
 		return true;
+	}
+	
+	public List<FoodData> GetRandomMeals(int count)
+	{
+		List<FoodData> list = new LinkedList<FoodData>();
+		
+		Random rnd = new Random();
+		for(FoodData meal : data.values())
+		{
+			if(rnd.nextFloat() < count * 1f / data.size())
+				list.add(meal);
+		}
+		return list;
 	}
 }
