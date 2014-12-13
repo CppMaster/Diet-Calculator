@@ -10,8 +10,9 @@ public class FoodData {
 	float protein;
 	float fat;
 	float glycemicIndex;
-	
-	public String getId() {
+    private String name;
+
+    public String getId() {
 		return id;
 	}
 	public void setId(String id) {
@@ -67,5 +68,12 @@ public class FoodData {
 				+ ", protein=" + protein + ", fat=" + fat + ", glycemicIndex="
 				+ glycemicIndex + "]";
 	}
-	
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

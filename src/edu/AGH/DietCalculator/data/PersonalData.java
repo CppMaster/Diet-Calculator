@@ -90,5 +90,27 @@ public class PersonalData {
     {
     	return CalculateBodyMassIndex(weight, height);
     }
-	
+
+    public float CalculateCaloriesNeeded() {
+        //applying the Harris-Benedict Principle
+        float bmr = CalculateBaseMetabolicRate();
+        float exerciseFactor = GetExerciseFactor(exercise);
+        return bmr * exerciseFactor;
+    }
+
+    private float GetExerciseFactor(String exercise) {
+        if (exercise.equals("none")) {
+            return 1.2f;
+        } else if (exercise.equals("light")) {
+            return 1.375f;
+        } else if (exercise.equals("moderate")) {
+            return 1.55f;
+        } else if (exercise.equals("heavy")) {
+            return 1.725f;
+        } else if (exercise.equals("very heavy")) {
+            return 1.9f;
+        } else {
+            return 1.2f;
+        }
+    }
 }

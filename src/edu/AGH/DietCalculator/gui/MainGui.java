@@ -9,9 +9,17 @@ import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.*;
+import java.util.List;
 
 import edu.AGH.DietCalculator.data.Database;
+import edu.AGH.DietCalculator.data.FoodData;
 import edu.AGH.DietCalculator.data.PersonalData;
+import edu.AGH.DietCalculator.diet.Diet;
+import edu.AGH.DietCalculator.diet.DietParameters;
+import edu.AGH.DietCalculator.diet.GeneticAlgorithmParameters;
+import edu.AGH.DietCalculator.diet.GeneticDietCreator;
+import sun.misc.FDBigInteger;
 
 public class MainGui 
 {
@@ -204,7 +212,7 @@ public class MainGui
 
         float bmi = data.CalculateBodyMassIndex();
         float bmr = data.CalculateBaseMetabolicRate();
-        float caloriesNeeded = CalculateCaloriesNeeded(bmr, data.getExercise()); //applying the Harris-Benedict Principle
+        float caloriesNeeded = data.CalculateCaloriesNeeded();
 		System.out.println("Calculate:" + data);
         System.out.println("BMI: " + bmi);
         System.out.println("BMR: " + bmr);
@@ -215,28 +223,29 @@ public class MainGui
         if(resultFrame == null) resultFrame = new ResultFrame();
         resultFrame.SetNeeds(bmi, bmr, caloriesNeeded);
         resultFrame.SetDiet(database.GetRandomMeals(8));
-	}
 
-    private float CalculateCaloriesNeeded(float bmr, String exercise) {
-        float exerciseFactor = GetExerciseFactor(exercise);
-        return bmr * exerciseFactor;
+        List<FoodData> foods = GenerateFoods(50);
+        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 50, 5, foods);
+        GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(0.001, 1000);
+        GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
+        Diet diet = geneticDietCreator.GenerateDiet(300);
+        System.out.println(diet);
+        System.out.println(Arrays.toString(geneticDietCreator.GetProbabilities()));
+        System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
     }
 
-    private float GetExerciseFactor(String exercise) {
-        if (exercise.equals("none")) {
-            return 1.2f;
-        } else if (exercise.equals("light")) {
-            return 1.375f;
-        } else if (exercise.equals("moderate")) {
-            return 1.55f;
-        } else if (exercise.equals("heavy")) {
-            return 1.725f;
-        } else if (exercise.equals("very heavy")) {
-            return 1.9f;
-        } else {
-            return 1.2f;
+    private List<FoodData> GenerateFoods(int numberOfFoods) {
+        Random generator = new Random();
+        List<FoodData> foods = new ArrayList<>(numberOfFoods);
+        for (int i = 0; i < numberOfFoods; i++) {
+            FoodData food = new FoodData();
+            food.setCalories(generator.nextInt(1000));
+            food.setGlycemicIndex(generator.nextFloat() * 100.0f);
+            food.setName("food" + i + " kcal= " + food.getCalories() + " gl= " + food.getGlycemicIndex());
+            foods.add(food);
         }
+        return foods;
     }
 
-    
+
 }
