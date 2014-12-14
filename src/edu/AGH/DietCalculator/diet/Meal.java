@@ -45,4 +45,14 @@ public class Meal {
         }
         return clone;
     }
+
+    public float getProteins() {
+        return (float) foods.stream().mapToDouble(FoodData::getProtein).sum();
+    }
+    public float getCarbohydrates() {
+        return (float) foods.stream().mapToDouble(FoodData::getCarbohydrate).sum();
+    }
+    public float getFats() {
+        return (float) foods.stream().mapToDouble(FoodData::getFat).sum();
+    }
 }

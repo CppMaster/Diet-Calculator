@@ -15,11 +15,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import edu.AGH.DietCalculator.data.FoodData;
+import edu.AGH.DietCalculator.diet.Diet;
+import edu.AGH.DietCalculator.diet.Meal;
 
 @SuppressWarnings("serial")
 public class ResultFrame extends Frame
 {
-	final int columnCount = 7;
+	final int columnCount = 8;
 	
 	Label bmiLabel;
 	Label bmrLabel;
@@ -78,10 +80,12 @@ public class ResultFrame extends Frame
 		caloriesLabel.setText("Calories needed: " + _calories);
 	}
 	
-	public void SetDiet(List<FoodData> diet)
+	public void SetDiet(Diet diet)
 	{
-		Object[][] data = new Object[diet.size()][];
+        int totalFoodItems = diet.meals.stream().mapToInt(meal -> meal.foods.size()).sum();
 		ids = new String[diet.size()];
+		
+		Object[][] data = new Object[totalFoodItems][];
 		
 		Object[] labels = new Object[columnCount];
 		labels[0] = "Name";
@@ -91,6 +95,7 @@ public class ResultFrame extends Frame
 		labels[4] = "Protein";
 		labels[5] = "Fat";
 		labels[6] = "Glicemic Wage";
+		labels[7] = "Meal";
 		
 		for(int a = 0; a < diet.size(); ++a)
 		{
@@ -103,8 +108,29 @@ public class ResultFrame extends Frame
 			data[a][4] = currRow.getProtein();
 			data[a][5] = currRow.getFat();
 			data[a][6] = currRow.getGlycemicIndex();
-			ids[a] = currRow.getId();
+
 		}
+=======
+		labels[6] = "Glycemic load";
+
+        int row = 0;
+        int mealNumber = 1;
+        for (Meal meal : diet.meals) {
+            for (FoodData food : meal.foods) {
+                data[row] = new Object[columnCount];
+                data[row][0] = food.getLabel();
+                data[row][1] = food.getMass();
+                data[row][2] = food.getCalories();
+                data[row][3] = food.getCarbohydrate();
+                data[row][4] = food.getProtein();
+                data[row][5] = food.getFat();
+                data[row][6] = food.getGlycemicIndex();
+                data[row][7] = mealNumber;
+                row++;
+            }
+	    ids[row] = meal.getId();
+            mealNumber++;
+        }
 		
 		if(scrollPane != null) remove(scrollPane);
 		dietTable = new JTable(data, labels);

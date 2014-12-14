@@ -28,4 +28,14 @@ public class Diet {
                 "meals=" + meals +
                 '}';
     }
+
+    public float getProteins() {
+        return (float) meals.stream().mapToDouble(Meal::getProteins).sum();
+    }
+    public float getCarbohydrates() {
+        return (float) meals.stream().mapToDouble(Meal::getCarbohydrates).sum();
+    }
+    public float getFats() {
+        return (float) meals.stream().mapToDouble(Meal::getFats).sum();
+    }
 }

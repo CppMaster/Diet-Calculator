@@ -15,11 +15,7 @@ import java.util.List;
 import edu.AGH.DietCalculator.data.Database;
 import edu.AGH.DietCalculator.data.FoodData;
 import edu.AGH.DietCalculator.data.PersonalData;
-import edu.AGH.DietCalculator.diet.Diet;
-import edu.AGH.DietCalculator.diet.DietParameters;
-import edu.AGH.DietCalculator.diet.GeneticAlgorithmParameters;
-import edu.AGH.DietCalculator.diet.GeneticDietCreator;
-import sun.misc.FDBigInteger;
+import edu.AGH.DietCalculator.diet.*;
 
 public class MainGui 
 {
@@ -209,7 +205,6 @@ public class MainGui
 	
 	public void Calculate()
 	{
-
         float bmi = data.CalculateBodyMassIndex();
         float bmr = data.CalculateBaseMetabolicRate();
         float caloriesNeeded = data.CalculateCaloriesNeeded();
@@ -219,33 +214,43 @@ public class MainGui
         System.out.println("Calories needed: " + caloriesNeeded);
         
         //Algorithm
-        
+
+        //TODO: fill these variables according to user needs
+        float targetProteins = 120f;
+        float targetCarbohydrates = 700f;
+        float targetFats = 100;
+
+        List<DietPenalty> penalties = GetDietPenalties(caloriesNeeded, targetProteins, targetCarbohydrates, targetFats);
+        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 50, 5, database.GetFoods(), penalties);
+
+        double mutationRate = 0.05;
+        int populationSize = 200;
+        int iterations = 50;
+        GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(mutationRate, populationSize);
+        GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
+        Diet diet = geneticDietCreator.GenerateDiet(iterations);
+        System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
+
+
         if(resultFrame == null) resultFrame = new ResultFrame();
         resultFrame.SetNeeds(bmi, bmr, caloriesNeeded);
-        resultFrame.SetDiet(database.GetRandomMeals(8));
-
-        List<FoodData> foods = GenerateFoods(50);
-        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 50, 5, foods);
-        GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(0.001, 1000);
-        GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
-        Diet diet = geneticDietCreator.GenerateDiet(300);
-        System.out.println(diet);
-        System.out.println(Arrays.toString(geneticDietCreator.GetProbabilities()));
-        System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
+        resultFrame.SetDiet(diet);
     }
 
-    private List<FoodData> GenerateFoods(int numberOfFoods) {
-        Random generator = new Random();
-        List<FoodData> foods = new ArrayList<>(numberOfFoods);
-        for (int i = 0; i < numberOfFoods; i++) {
-            FoodData food = new FoodData();
-            food.setCalories(generator.nextInt(1000));
-            food.setGlycemicIndex(generator.nextFloat() * 100.0f);
-            food.setName("food" + i + " kcal= " + food.getCalories() + " gl= " + food.getGlycemicIndex());
-            foods.add(food);
-        }
-        return foods;
-    }
+    private List<DietPenalty> GetDietPenalties(float targetCalories, float targetProteins, float targetCarbohydrates, float targetFats) {
+        float caloriesWeight = 1.0f;
+        float glycemicLoadWeight = 0.005f; //NOTICE: glycemic load penalty is QUADRATIC and the rest is LINEAR, so it's weight doesn't scale the same!
+        float proteinsWeight = 0.1f;
+        float carbohydratesWeight = 0.1f;
+        float fatsWeight = 0.1f;
 
+      List<DietPenalty> penalties = new ArrayList<DietPenalty>();
+        penalties.add(diet -> caloriesWeight * Math.abs(targetCalories - diet.getCalories()));
+        penalties.add(diet -> glycemicLoadWeight * diet.meals.stream().mapToDouble(meal -> Math.pow(meal.getGlycemicLoad(), 2)).sum());
+        penalties.add(diet -> proteinsWeight * Math.abs(targetProteins - diet.getProteins()));
+        penalties.add(diet -> carbohydratesWeight * Math.abs(targetCarbohydrates - diet.getCarbohydrates()));
+        penalties.add(diet -> fatsWeight * Math.abs(targetFats - diet.getFats()));
+      return penalties;
+    }
 
 }

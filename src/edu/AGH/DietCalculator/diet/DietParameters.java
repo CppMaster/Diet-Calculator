@@ -11,15 +11,17 @@ public class DietParameters {
     public DietParameters() {
     }
 
-    public DietParameters(int targetCalories, int maxGlycemicLoad, int meals, List<FoodData> foods) {
+    public DietParameters(int targetCalories, int maxGlycemicLoad, int meals, List<FoodData> foods, List<DietPenalty> penalties) {
         this.targetCalories = targetCalories;
         this.maxGlycemicLoad = maxGlycemicLoad;
         this.meals = meals;
         this.foods = foods;
+        this.penalties = penalties;
     }
 
     public int targetCalories;
     public int maxGlycemicLoad;
     public int meals;
     public List<FoodData> foods;
+    public List<DietPenalty> penalties;
 }

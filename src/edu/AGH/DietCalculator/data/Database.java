@@ -7,7 +7,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
+import java.util.*;
+import java.util.Map.Entry;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.events.Attribute;
@@ -87,4 +88,8 @@ public class Database {
 		}
 		return list;
 	}
+
+    public List<FoodData> GetFoods() {
+        return new ArrayList<>(data.values());
+    }
 }
