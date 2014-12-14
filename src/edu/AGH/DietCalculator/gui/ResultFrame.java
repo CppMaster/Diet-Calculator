@@ -83,7 +83,7 @@ public class ResultFrame extends Frame
 	public void SetDiet(Diet diet)
 	{
         int totalFoodItems = diet.meals.stream().mapToInt(meal -> meal.foods.size()).sum();
-		ids = new String[diet.size()];
+		ids = new String[totalFoodItems];
 		
 		Object[][] data = new Object[totalFoodItems][];
 		
@@ -96,22 +96,6 @@ public class ResultFrame extends Frame
 		labels[5] = "Fat";
 		labels[6] = "Glicemic Wage";
 		labels[7] = "Meal";
-		
-		for(int a = 0; a < diet.size(); ++a)
-		{
-			data[a] = new Object[columnCount];
-			FoodData currRow = diet.get(a);
-			data[a][0] = currRow.getLabel();
-			data[a][1] = currRow.getMass();
-			data[a][2] = currRow.getCalories();
-			data[a][3] = currRow.getCarbohydrate();
-			data[a][4] = currRow.getProtein();
-			data[a][5] = currRow.getFat();
-			data[a][6] = currRow.getGlycemicIndex();
-
-		}
-=======
-		labels[6] = "Glycemic load";
 
         int row = 0;
         int mealNumber = 1;
@@ -126,9 +110,9 @@ public class ResultFrame extends Frame
                 data[row][5] = food.getFat();
                 data[row][6] = food.getGlycemicIndex();
                 data[row][7] = mealNumber;
+                ids[row] = food.getId();
                 row++;
             }
-	    ids[row] = meal.getId();
             mealNumber++;
         }
 		
