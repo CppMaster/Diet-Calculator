@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -23,6 +26,7 @@ public class ResultFrame extends Frame
 	Label caloriesLabel;
 	JTable dietTable = null;
 	JScrollPane scrollPane = null;
+	String[] ids;
 	
 	public ResultFrame()
 	{
@@ -48,6 +52,18 @@ public class ResultFrame extends Frame
 			caloriesLabel = new Label("Calories needed: 2272.2");
 			panel.add(caloriesLabel);
 			
+			JButton banButton = new JButton("Ban selected and recalculate");
+			panel.add(banButton);
+			banButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					Recalculate();
+					
+				}
+			});
+			
+			
 			panel.setBounds(10, 30, 580, 50);
 			add(panel);
 		}
@@ -65,6 +81,7 @@ public class ResultFrame extends Frame
 	public void SetDiet(List<FoodData> diet)
 	{
 		Object[][] data = new Object[diet.size()][];
+		ids = new String[diet.size()];
 		
 		Object[] labels = new Object[columnCount];
 		labels[0] = "Name";
@@ -86,6 +103,7 @@ public class ResultFrame extends Frame
 			data[a][4] = currRow.getProtein();
 			data[a][5] = currRow.getFat();
 			data[a][6] = currRow.getGlycemicIndex();
+			ids[a] = currRow.getId();
 		}
 		
 		if(scrollPane != null) remove(scrollPane);
@@ -93,6 +111,24 @@ public class ResultFrame extends Frame
 		scrollPane = new JScrollPane(dietTable);
 		scrollPane.setBounds(10, 75, 580, 240);
 		add(scrollPane);
+	}
+	
+	void Recalculate()
+	{
+		int[] selected = dietTable.getSelectedRows();
+		String[] selectedId = new String[selected.length];
+		for(int a = 0; a < selected.length; ++a)
+		{
+			selectedId[a] = ids[selected[a]];
+		}
+		
+		//Ban
+		System.out.print("Ban: ");
+		for(String id : selectedId)
+		{
+			System.out.print(id + ", ");
+		}
+		System.out.println();
 	}
 	
 }
