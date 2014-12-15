@@ -1,11 +1,12 @@
 package edu.AGH.DietCalculator.diet;
 
-import edu.AGH.DietCalculator.data.FoodData;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+
+import edu.AGH.DietCalculator.data.FoodData;
 
 /**
  * Created by krzysiek on 2014-12-11.
@@ -182,4 +183,17 @@ public class GeneticDietCreator {
     public double[] GetChampionRatings() {
         return champions.stream().mapToDouble(ch -> RateDiet(ch)).toArray();
     }
+    
+    public void AddBan(String id)
+    {
+    	for(int a = 0; a < dietParameters.foods.size(); ++a)
+    	{
+    		if(dietParameters.foods.get(a).getId().equals(id))
+    		{
+    			dietParameters.foods.remove(a);
+    			return;
+    		}
+    	}
+    }
+    
 }

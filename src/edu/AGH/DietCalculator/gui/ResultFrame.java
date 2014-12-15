@@ -29,12 +29,13 @@ public class ResultFrame extends Frame
 	JTable dietTable = null;
 	JScrollPane scrollPane = null;
 	String[] ids;
+	MainGui mainGui;
 	
 	public ResultFrame()
 	{
 		super("Result");
 		setLayout(null);
-		setSize(600, 300);
+		setSize(600, 400);
 		setBackground(Color.lightGray);
 		addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
@@ -54,7 +55,7 @@ public class ResultFrame extends Frame
 			caloriesLabel = new Label("Calories needed: 2272.2");
 			panel.add(caloriesLabel);
 			
-			JButton banButton = new JButton("Ban selected and recalculate");
+			JButton banButton = new JButton("Ban selected");
 			panel.add(banButton);
 			banButton.addActionListener(new ActionListener() {
 				
@@ -119,7 +120,7 @@ public class ResultFrame extends Frame
 		if(scrollPane != null) remove(scrollPane);
 		dietTable = new JTable(data, labels);
 		scrollPane = new JScrollPane(dietTable);
-		scrollPane.setBounds(10, 75, 580, 240);
+		scrollPane.setBounds(10, 75, 580, 340);
 		add(scrollPane);
 	}
 	
@@ -137,6 +138,7 @@ public class ResultFrame extends Frame
 		for(String id : selectedId)
 		{
 			System.out.print(id + ", ");
+			mainGui.Ban(id);
 		}
 		System.out.println();
 	}

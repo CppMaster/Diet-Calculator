@@ -25,6 +25,7 @@ public class MainGui
 	PersonalData data;
 	Database database;
 	ResultFrame resultFrame = null;
+	Set<String> bans;
 	
 	public static void main(String[] args) {
 		MainGui window = new MainGui();
@@ -36,6 +37,7 @@ public class MainGui
 		data = new PersonalData();
 		database = new Database();
 		database.LoadData("food_data.xml");
+		bans = new HashSet<String>();
 	}
 
 	private void prepareGUI() {
@@ -228,13 +230,19 @@ public class MainGui
         int iterations = 50;
         GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(mutationRate, populationSize);
         GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
+        for(String ban : bans)
+        {
+        	geneticDietCreator.AddBan(ban);
+        }
         Diet diet = geneticDietCreator.GenerateDiet(iterations);
         System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
 
 
         if(resultFrame == null) resultFrame = new ResultFrame();
+        resultFrame.mainGui = this;
         resultFrame.SetNeeds(bmi, bmr, caloriesNeeded);
         resultFrame.SetDiet(diet);
+   
     }
 
     private List<DietPenalty> GetDietPenalties(float targetCalories, float targetProteins, float targetCarbohydrates, float targetFats) {
@@ -251,6 +259,11 @@ public class MainGui
         penalties.add(diet -> carbohydratesWeight * Math.abs(targetCarbohydrates - diet.getCarbohydrates()));
         penalties.add(diet -> fatsWeight * Math.abs(targetFats - diet.getFats()));
       return penalties;
+    }
+    
+    public void Ban(String id)
+    {
+    	bans.add(id);
     }
 
 }
