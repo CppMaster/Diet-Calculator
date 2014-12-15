@@ -249,9 +249,9 @@ public class MainGui
     private List<DietPenalty> GetDietPenalties(float targetCalories, float targetProteins, float targetCarbohydrates, float targetFats) {
         float caloriesWeight = 1.0f;
         float glycemicLoadWeight = 0.01f * data.getDiabetes(); //NOTICE: glycemic load penalty is QUADRATIC and the rest is LINEAR, so it's weight doesn't scale the same!
-        float proteinsWeight = 0.1f;
-        float carbohydratesWeight = 0.1f;
-        float fatsWeight = 0.1f;
+        float proteinsWeight = 0.2f;
+        float carbohydratesWeight = 0.3f;
+        float fatsWeight = 0.2f;
 
       List<DietPenalty> penalties = new ArrayList<DietPenalty>();
         penalties.add(diet -> caloriesWeight * Math.abs(targetCalories - diet.getCalories()));
