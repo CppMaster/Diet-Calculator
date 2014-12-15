@@ -26,6 +26,11 @@ public class ResultFrame extends Frame
 	Label bmiLabel;
 	Label bmrLabel;
 	Label caloriesLabel;
+	
+	Label carbohydrateLabel;
+	Label proteinLabel;
+	Label fatLabel;
+	
 	JTable dietTable = null;
 	JScrollPane scrollPane = null;
 	String[] ids;
@@ -55,6 +60,15 @@ public class ResultFrame extends Frame
 			caloriesLabel = new Label("Calories needed: 2272.2");
 			panel.add(caloriesLabel);
 			
+			carbohydrateLabel = new Label("Carbohydrate needed: 2272.2");
+			panel.add(carbohydrateLabel);
+			
+			proteinLabel = new Label("Protein needed: 2272.2");
+			panel.add(proteinLabel);
+			
+			fatLabel = new Label("Fat needed: 2272.2");
+			panel.add(fatLabel);
+			
 			JButton banButton = new JButton("Ban selected");
 			panel.add(banButton);
 			banButton.addActionListener(new ActionListener() {
@@ -67,7 +81,7 @@ public class ResultFrame extends Frame
 			});
 			
 			
-			panel.setBounds(10, 30, 580, 50);
+			panel.setBounds(10, 30, 580, 70);
 			add(panel);
 		}
 		
@@ -79,6 +93,13 @@ public class ResultFrame extends Frame
 		bmiLabel.setText("BMI: " + _bmi);
 		bmrLabel.setText("BMR: " + _bmr);
 		caloriesLabel.setText("Calories needed: " + _calories);
+	}
+	
+	public void SetNutritions(float _carbohydrate, float _protein, float _fat)
+	{
+		carbohydrateLabel.setText("Carbohydrate: " + _carbohydrate);
+		proteinLabel.setText("Protein: " + _protein);
+		fatLabel.setText("Fat: " + _fat);
 	}
 	
 	public void SetDiet(Diet diet)
@@ -120,7 +141,7 @@ public class ResultFrame extends Frame
 		if(scrollPane != null) remove(scrollPane);
 		dietTable = new JTable(data, labels);
 		scrollPane = new JScrollPane(dietTable);
-		scrollPane.setBounds(10, 75, 580, 340);
+		scrollPane.setBounds(10, 100, 580, 320);
 		add(scrollPane);
 	}
 	

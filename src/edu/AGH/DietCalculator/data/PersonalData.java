@@ -28,7 +28,7 @@ public class PersonalData {
 	boolean isPregnant = false;
 	
 	public boolean isPregnant() {
-		return isPregnant;
+		return isPregnant && getGender() == Gender.Female;
 	}
 	public void setPregnant(boolean isPregnant) {
 		this.isPregnant = isPregnant;
@@ -95,7 +95,51 @@ public class PersonalData {
         //applying the Harris-Benedict Principle
         float bmr = CalculateBaseMetabolicRate();
         float exerciseFactor = GetExerciseFactor(exercise);
-        return bmr * exerciseFactor;
+        float pregnancyFactor = isPregnant() ? 1.1f : 1.0f;
+        return bmr * exerciseFactor * pregnancyFactor;
+    }
+    
+    public float CarbohydrateNeeded()
+    {
+    	float carbohydratePerKG = 3f;
+    	if (exercise.equals("none")) {
+    		carbohydratePerKG = 3f;
+        } else if (exercise.equals("light")) {
+        	carbohydratePerKG = 4f;
+        } else if (exercise.equals("moderate")) {
+        	carbohydratePerKG = 6f;
+        } else if (exercise.equals("heavy")) {
+        	carbohydratePerKG = 8f;
+        } else if (exercise.equals("very heavy")) {
+        	carbohydratePerKG = 10f;
+        } else {
+        	carbohydratePerKG = 3f;
+        }
+    	return carbohydratePerKG * weight;
+    }
+    
+    public float FatNeeded()
+    {
+    	return CalculateCaloriesNeeded() * 0.25f / 9f;
+    }
+    
+    public float ProteinNeeded()
+    {	
+    	float ageFactor = 1f;
+    	if(isPregnant())
+    		ageFactor = 1.1f;
+    	else if(age < 1f)
+    		ageFactor = 1.2f;
+    	else if(age < 3f)
+    		ageFactor = 1.05f;
+    	else if(age < 13f)
+    		ageFactor = 0.95f;
+    	else if(age < 18f)
+    		ageFactor = 0.85f;
+    	else
+    		ageFactor = 0.8f;
+    	
+    	return ageFactor * weight;
     }
 
     private float GetExerciseFactor(String exercise) {

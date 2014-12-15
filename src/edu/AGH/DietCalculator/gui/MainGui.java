@@ -118,7 +118,7 @@ public class MainGui
 
             panel.add(new Label("Age [years]"));
 
-            TextField age = new TextField("72");
+            TextField age = new TextField("22");
             panel.add(age);
             age.addTextListener(new TextListener() {
 
@@ -218,9 +218,9 @@ public class MainGui
         //Algorithm
 
         //TODO: fill these variables according to user needs
-        float targetProteins = 120f;
-        float targetCarbohydrates = 700f;
-        float targetFats = 100;
+        float targetProteins = data.ProteinNeeded();
+        float targetCarbohydrates = data.CarbohydrateNeeded();
+        float targetFats = data.FatNeeded();
 
         List<DietPenalty> penalties = GetDietPenalties(caloriesNeeded, targetProteins, targetCarbohydrates, targetFats);
         DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 50, 5, database.GetFoods(), penalties);
@@ -241,13 +241,14 @@ public class MainGui
         if(resultFrame == null) resultFrame = new ResultFrame();
         resultFrame.mainGui = this;
         resultFrame.SetNeeds(bmi, bmr, caloriesNeeded);
+        resultFrame.SetNutritions(targetCarbohydrates, targetProteins, targetFats);
         resultFrame.SetDiet(diet);
    
     }
 
     private List<DietPenalty> GetDietPenalties(float targetCalories, float targetProteins, float targetCarbohydrates, float targetFats) {
         float caloriesWeight = 1.0f;
-        float glycemicLoadWeight = 0.005f; //NOTICE: glycemic load penalty is QUADRATIC and the rest is LINEAR, so it's weight doesn't scale the same!
+        float glycemicLoadWeight = 0.01f * data.getDiabetes(); //NOTICE: glycemic load penalty is QUADRATIC and the rest is LINEAR, so it's weight doesn't scale the same!
         float proteinsWeight = 0.1f;
         float carbohydratesWeight = 0.1f;
         float fatsWeight = 0.1f;
