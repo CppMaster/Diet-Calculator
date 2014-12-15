@@ -87,16 +87,6 @@ public class GeneticDietCreator {
 
     private double RateDiet(Diet diet) {
         return dietParameters.penalties.stream().mapToDouble(p -> p.run(diet)).sum();
-        /*
-        double caloriesPenalty = Math.abs(diet.getCalories() - dietParameters.targetCalories);
-        double glycemicPenalty = 0.0;
-        for (Meal meal : diet.meals) {
-            double glycemicLoad = meal.getGlycemicLoad();
-            glycemicPenalty += glycemicLoad * glycemicLoad;
-        }
-        double penalty = caloriesPenalty + glycemicPenalty;
-        return penalty;
-        */
     }
 
     public Diet GenerateDiet(int iterations) {
@@ -125,7 +115,8 @@ public class GeneticDietCreator {
     private Diet RandomDiet(int meals) {
         Diet diet = new Diet(meals);
         for (int i = 0; i < meals; i++) {
-            diet.meals.add(RandomMeal(3));
+            int foods = generator.nextInt(3) + 1;
+            diet.meals.add(RandomMeal(foods));
         }
         return diet;
     }

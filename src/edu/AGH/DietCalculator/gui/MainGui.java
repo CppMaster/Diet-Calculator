@@ -223,11 +223,11 @@ public class MainGui
         float targetFats = data.FatNeeded();
 
         List<DietPenalty> penalties = GetDietPenalties(caloriesNeeded, targetProteins, targetCarbohydrates, targetFats);
-        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 50, 5, database.GetFoods(), penalties);
+        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 5, database.GetFoods(), penalties);
 
-        double mutationRate = 0.05;
-        int populationSize = 200;
-        int iterations = 50;
+        double mutationRate = 0.02;
+        int populationSize = 500;
+        int iterations = 70;
         GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(mutationRate, populationSize);
         GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
         for(String ban : bans)
