@@ -14,6 +14,7 @@ import java.util.List;
 
 import edu.AGH.DietCalculator.data.Database;
 import edu.AGH.DietCalculator.data.FoodData;
+import edu.AGH.DietCalculator.data.MealData;
 import edu.AGH.DietCalculator.data.PersonalData;
 import edu.AGH.DietCalculator.diet.*;
 
@@ -37,6 +38,7 @@ public class MainGui
 		data = new PersonalData();
 		database = new Database();
 		database.LoadData("food_data.xml");
+		
 		bans = new HashSet<String>();
 	}
 

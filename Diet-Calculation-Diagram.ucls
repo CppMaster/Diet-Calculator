@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <enumeration id="1" language="java" name="edu.AGH.DietCalculator.data.PersonalData.Gender" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/data/PersonalData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="492" y="955"/>    
+    <position height="-1" width="-1" x="558" y="993"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </enumeration>  
   <class id="2" language="java" name="edu.AGH.DietCalculator.data.PersonalData" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/data/PersonalData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="567" width="301" x="39" y="445"/>    
+    <position height="621" width="301" x="121" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <interface id="3" language="java" name="edu.AGH.DietCalculator.diet.DietPenalty" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/DietPenalty.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="128" x="861" y="445"/>    
+    <position height="81" width="128" x="957" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </interface>  
   <class id="4" language="java" name="edu.AGH.DietCalculator.gui.ResultFrame" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/gui/ResultFrame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="484" y="694"/>    
+    <position height="333" width="187" x="462" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="edu.AGH.DietCalculator.gui.MainGui" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/gui/MainGui.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="290" x="380" y="180"/>    
+    <position height="225" width="290" x="462" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="edu.AGH.DietCalculator.diet.DietPopulation" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/DietPopulation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="128" x="1076" y="-319"/>    
+    <position height="81" width="128" x="1158" y="-334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="edu.AGH.DietCalculator.data.Database" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/data/Database.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="694" y="648"/>    
+    <position height="135" width="207" x="689" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="edu.AGH.DietCalculator.diet.DietParameters" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/DietParameters.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="309" x="710" y="180"/>    
+    <position height="153" width="309" x="792" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="edu.AGH.DietCalculator.data.FoodData" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/data/FoodData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="912" y="1014"/>    
+    <position height="-1" width="-1" x="876" y="919"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="edu.AGH.DietCalculator.diet.Meal" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/Meal.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="145" x="1029" y="445"/>    
+    <position height="261" width="145" x="1125" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="edu.AGH.DietCalculator.diet.Diet" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/Diet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1155" y="270"/>    
+    <position height="189" width="145" x="1141" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="edu.AGH.DietCalculator.diet.GeneticDietCreator" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/GeneticDietCreator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="827" y="-95"/>    
+    <position height="459" width="338" x="780" y="-334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -112,7 +112,7 @@
   <class id="13" language="java" name="edu.AGH.DietCalculator.diet.GeneticAlgorithmParameters" project="Diet-Calculator" 
     file="/Diet-Calculator/src/edu/AGH/DietCalculator/diet/GeneticAlgorithmParameters.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="198" y="144"/>    
+    <position height="135" width="217" x="205" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,125 +120,125 @@
     </display>  
   </class>  
   <association id="14">    
-    <bendpoint x="830" y="445"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="15" name="foods"/>      
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="15" name="diets"/>      
       <multiplicity id="16" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="17">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="18" name="penalties"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="21" name="database"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="18" name="database"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="24" name="resultFrame"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="26">    
+  <association id="20">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="27" name="champions"/>      
-      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+      <attribute id="21" name="population"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="30" name="foods"/>      
-      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+  <association id="23">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="24" name="data"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="33" name="dietParameters"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
+  <association id="26">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="36" name="data"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+      <attribute id="27" name="data"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="39" name="population"/>      
-      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="42" name="gender"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="45" name="geneticParameters"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="47">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </nesting>  
-  <association id="48">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="49" name="mainGui"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
+  <association id="29">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="52" name="meals"/>      
-      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
+      <attribute id="30" name="meals"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="55" name="data"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+  <association id="32">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="33" name="geneticParameters"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="36" name="gender"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="39" name="resultFrame"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="42" name="foods"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="45" name="mainGui"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <bendpoint x="926" y="430"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="48" name="foods"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="50">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <association id="51">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="52" name="dietParameters"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="55" name="penalties"/>      
+      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="57">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="58" name="diets"/>      
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="58" name="champions"/>      
       <multiplicity id="59" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    

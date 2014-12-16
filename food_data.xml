@@ -1,53 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-  <item id="apple"	label="Jablko"	mass="204" 	calories="137"	carbohydrate="34"	protein="0"	fat="1"	glycemicIndex="8"/>
-  <item id="orange"	label="Pomarancza"	mass="180"	calories="85"	carbohydrate="21"	protein="2"	fat="0" glycemicIndex="6"/>
-  <item id="carrot"	label="Marchew"	mass="123"	calories="28"	carbohydrate="7"	protein="1"	fat="0" glycemicIndex="1"/>
-  <item id="banana"	label="Banan"	mass="225"	calories="200"	carbohydrate="51"	protein="2"	fat="1" glycemicIndex="18"/>
-  <item id="pineapple"	label="Ananas"	mass="165"	calories="82"	carbohydrate="22"	protein="1"	fat="0" glycemicIndex="6"/>
-  <item id="watermelon"	label="Arbus"	mass="154"	calories="46"	carbohydrate="12"	protein="1"	fat="0" glycemicIndex="3"/>
-  <item id="potato"	label="Ziemniak"	mass="213"	calories="164"	carbohydrate="39"	protein="4"	fat="0" glycemicIndex="17"/>
-  <item id="celery"	label="Seler"	mass="110"	calories="18"	carbohydrate="4"	protein="1"	fat="0" glycemicIndex="1"/>
-  <item id="beet"	label="Burak"	mass="246"	calories="69"	carbohydrate="16"	protein="2"	fat="0" glycemicIndex="5"/>
-  <item id="cauliflower"	label="Kalafior"	mass="284"	calories="68"	carbohydrate="13"	protein="6"	fat="1" glycemicIndex="7"/>
-  <item id="chicken"	label="Kurczak"	mass="140"	calories="211"	carbohydrate="0"	protein="41"	fat="4" glycemicIndex="0"/>
-  <item id="turkey"	label="Indyk"	mass="306"	calories="413"	carbohydrate="0"	protein="92"	fat="2" glycemicIndex="0"/>
-  <item id="beef"	label="Wolowina"	mass="261"	calories="371"	carbohydrate="0"	protein="55"	fat="15" glycemicIndex="0"/>
-  <item id="pork"	label="Wieprzowina"	mass="135"	calories="340"	carbohydrate="0"	protein="39"	fat="19" glycemicIndex="0"/>
-  <item id="tuna"	label="Tunczyk"	mass="146"	calories="289"	carbohydrate="0"	protein="43"	fat="12" glycemicIndex="0"/>
-  <item id="herring"	label="Sledz"	mass="143"	calories="290"	carbohydrate="0"	protein="33"	fat="17" glycemicIndex="0"/>
-  <item id="whitebread"	label="Chleb bialy"	mass="100"	calories="266"	carbohydrate="51"	protein="8"	fat="3" glycemicIndex="30"/>
-  <item id="wholewheatbread"	label="Chleb razowy"	mass="100"	calories="247"	carbohydrate="41"	protein="13"	fat="3" glycemicIndex="19"/>
-  <item id="darkchocolate"	label="Ciemna czekolada"	mass="112"	calories="647"	carbohydrate="59"	protein="7"	fat="43" glycemicIndex="26"/>
-  <item id="whitechocolate"	label="Biala czekolada"	mass="85"	calories="458"	carbohydrate="50"	protein="5"	fat="27" glycemicIndex="30"/>
-  <item id="tangerine"	label="Mandarynka"	mass="120" 	calories="64"	carbohydrate="16"	protein="1"	fat="0"	glycemicIndex="5"/>
-  <item id="pear"	label="Gruszka"	mass="148" 	calories="86"	carbohydrate="23"	protein="1"	fat="0"	glycemicIndex="5"/>
-  <item id="egg"	label="Jajko"	mass="100" 	calories="48"	carbohydrate="1"	protein="11"	fat="0"	glycemicIndex="1"/>
-  <item id="greenpepper"	label="Zielona papryka"	mass="149" 	calories="30"	carbohydrate="7"	protein="2"	fat="0"	glycemicIndex="2"/>
-  <item id="redpepper"	label="Czerwona papryka"	mass="149" 	calories="46"	carbohydrate="9"	protein="1"	fat="0"	glycemicIndex="3"/>
-  <item id="yellowpepper"	label="Zolta papryka"	mass="186" 	calories="50"	carbohydrate="12"	protein="2"	fat="0"	glycemicIndex="4"/>
-  <item id="lettuce"	label="Salata"	mass="100" 	calories="15"	carbohydrate="3"	protein="1"	fat="0"	glycemicIndex="1"/>
-  <item id="whiterice"	label="Ryz bialy"	mass="185" 	calories="685"	carbohydrate="151"	protein="13"	fat="1"	glycemicIndex="109"/>
-  <item id="bronzerice"	label="Ryz brazowy"	mass="185" 	calories="685"	carbohydrate="143"	protein="15"	fat="5"	glycemicIndex="98"/>
-  <item id="tomatoe"	label="Pomidor"	mass="100" 	calories="258"	carbohydrate="56"	protein="14"	fat="3"	glycemicIndex="22"/>
-  <item id="plum"	label="Sliwka"	mass="165" 	calories="76"	carbohydrate="19"	protein="1"	fat="0"	glycemicIndex="5"/>
-  <item id="doughnut"	label="Paczek"	mass="100" 	calories="399"	carbohydrate="51"	protein="6"	fat="19"	glycemicIndex="29"/>
-  <item id="milk"	label="Mleko"	mass="244" 	calories="146"	carbohydrate="13"	protein="8"	fat="8"	glycemicIndex="9"/>
-  <item id="almondnuts"	label="Migdaly"	mass="145" 	calories="842"	carbohydrate="29"	protein="32"	fat="73"	glycemicIndex="0"/>
-  <item id="cashewnuts"	label="Orzechy nerkowca"	mass="100" 	calories="553"	carbohydrate="33"	protein="18"	fat="44"	glycemicIndex="11"/>
-  <item id="coconutmilk"	label="Mleko kokosowe"	mass="240" 	calories="552"	carbohydrate="13"	protein="5"	fat="57"	glycemicIndex="5"/>
-  <item id="pecans"	label="Orzesznik jadalny"	mass="109" 	calories="753"	carbohydrate="15"	protein="10"	fat="18"	glycemicIndex="0"/>
-  <item id="pistachio"	label="Pistacje"	mass="123" 	calories="685"	carbohydrate="34"	protein="25"	fat="55"	glycemicIndex="5"/>
-  <item id="walnuts"	label="Orzechy wloskie"	mass="125" 	calories="773"	carbohydrate="12"	protein="30"	fat="74"	glycemicIndex="0"/>
-  <item id="rabbit"	label="Krolik"	mass="299" 	calories="517"	carbohydrate="0"	protein="99"	fat="10"	glycemicIndex="0"/>
-  <item id="coffee"	label="Kawa"	mass="30" 	calories="1"	carbohydrate="34"	protein="0"	fat="1"	glycemicIndex="8"/>
-  <item id="avocado"	label="Awokado"	mass="150" 	calories="240"	carbohydrate="13"	protein="3"	fat="22"	glycemicIndex="3"/>
-  <item id="duck"	label="Kaczka"	mass="137" 	calories="181"	carbohydrate="0"	protein="25"	fat="8"	glycemicIndex="0"/>
-  <item id="olive"	label="Oliwa z oliwek"	mass="28" 	calories="248"	carbohydrate="0"	protein="0"	fat="28"	glycemicIndex="0"/>
-  <item id="beer"	label="Piwo"	mass="365" 	calories="153"	carbohydrate="13"	protein="2"	fat="0"	glycemicIndex="3"/>
-  <item id="cola"	label="Coca-Cola"	mass="345" 	calories="150"	carbohydrate="41"	protein="0"	fat="0"	glycemicIndex="9"/>
-  <item id="cucumber"	label="Ogorek"	mass="100" 	calories="15"	carbohydrate="4"	protein="1"	fat="0"	glycemicIndex="1"/>
-  <item id="honey"	label="Miod"	mass="100" 	calories="304"	carbohydrate="82"	protein="0"	fat="0"	glycemicIndex="50"/>
-  <item id="applepie"	label="Szarlotka"	mass="125" 	calories="296"	carbohydrate="42"	protein="2"	fat="14"	glycemicIndex="21"/>
-  <item id="strawberry"	label="Truskawka"	mass="152" 	calories="49"	carbohydrate="12"	protein="1"	fat="0"	glycemicIndex="3"/>
+  <item id="apple"	label="Jablko"	mass="204" 	calories="137"	carbohydrate="34"	protein="0"	fat="1"	glycemicIndex="8" type="fruit"/>
+  <item id="orange"	label="Pomarancza"	mass="180"	calories="85"	carbohydrate="21"	protein="2"	fat="0" glycemicIndex="6" type="fruit"/>
+  <item id="carrot"	label="Marchew"	mass="123"	calories="28"	carbohydrate="7"	protein="1"	fat="0" glycemicIndex="1" type="vegetable"/>
+  <item id="banana"	label="Banan"	mass="225"	calories="200"	carbohydrate="51"	protein="2"	fat="1" glycemicIndex="18" type="fruit"/>
+  <item id="pineapple"	label="Ananas"	mass="165"	calories="82"	carbohydrate="22"	protein="1"	fat="0" glycemicIndex="6" type="fruit"/>
+  <item id="watermelon"	label="Arbuz"	mass="154"	calories="46"	carbohydrate="12"	protein="1"	fat="0" glycemicIndex="3" type="fruit"/>
+  <item id="potato"	label="Ziemniak"	mass="213"	calories="164"	carbohydrate="39"	protein="4"	fat="0" glycemicIndex="17" type="vegetable"/>
+  <item id="celery"	label="Seler"	mass="110"	calories="18"	carbohydrate="4"	protein="1"	fat="0" glycemicIndex="1" type="vegetable"/>
+  <item id="beet"	label="Burak"	mass="246"	calories="69"	carbohydrate="16"	protein="2"	fat="0" glycemicIndex="5" type="vegetable"/>
+  <item id="cauliflower"	label="Kalafior"	mass="284"	calories="68"	carbohydrate="13"	protein="6"	fat="1" glycemicIndex="7" type="vegetable"/>
+  <item id="chicken"	label="Kurczak"	mass="140"	calories="211"	carbohydrate="0"	protein="41"	fat="4" glycemicIndex="0" type="meat"/>
+  <item id="turkey"	label="Indyk"	mass="306"	calories="413"	carbohydrate="0"	protein="92"	fat="2" glycemicIndex="0" type="meat"/>
+  <item id="beef"	label="Wolowina"	mass="261"	calories="371"	carbohydrate="0"	protein="55"	fat="15" glycemicIndex="0" type="meat"/>
+  <item id="pork"	label="Wieprzowina"	mass="135"	calories="340"	carbohydrate="0"	protein="39"	fat="19" glycemicIndex="0" type="meat"/>
+  <item id="tuna"	label="Tunczyk"	mass="146"	calories="289"	carbohydrate="0"	protein="43"	fat="12" glycemicIndex="0" type="meat"/>
+  <item id="herring"	label="Sledz"	mass="143"	calories="290"	carbohydrate="0"	protein="33"	fat="17" glycemicIndex="0" type="meat"/>
+  <item id="darkchocolate"	label="Ciemna czekolada"	mass="112"	calories="647"	carbohydrate="59"	protein="7"	fat="43" glycemicIndex="26" type="candy"/>
+  <item id="whitechocolate"	label="Biala czekolada"	mass="85"	calories="458"	carbohydrate="50"	protein="5"	fat="27" glycemicIndex="30" type="candy"/>
+  <item id="tangerine"	label="Mandarynka"	mass="120" 	calories="64"	carbohydrate="16"	protein="1"	fat="0"	glycemicIndex="5"  type="fruit"/>
+  <item id="pear"	label="Gruszka"	mass="148" 	calories="86"	carbohydrate="23"	protein="1"	fat="0"	glycemicIndex="5"  type="fruit"/>
+  <item id="egg"	label="Jajko"	mass="100" 	calories="48"	carbohydrate="1"	protein="11"	fat="0"	glycemicIndex="1" type="breakfastfood"/>
+  <item id="greenpepper"	label="Zielona papryka"	mass="149" 	calories="30"	carbohydrate="7"	protein="2"	fat="0"	glycemicIndex="2" type="vegetable"/>
+  <item id="redpepper"	label="Czerwona papryka"	mass="149" 	calories="46"	carbohydrate="9"	protein="1"	fat="0"	glycemicIndex="3" type="vegetable"/>
+  <item id="yellowpepper"	label="Zolta papryka"	mass="186" 	calories="50"	carbohydrate="12"	protein="2"	fat="0"	glycemicIndex="4" type="vegetable"/>
+  <item id="lettuce"	label="Salata"	mass="100" 	calories="15"	carbohydrate="3"	protein="1"	fat="0"	glycemicIndex="1"  type="vegetable"/>
+  <item id="whiterice"	label="Ryz bialy"	mass="185" 	calories="685"	carbohydrate="151"	protein="13"	fat="1"	glycemicIndex="109"  type="vegetable"/>
+  <item id="bronzerice"	label="Ryz brazowy"	mass="185" 	calories="685"	carbohydrate="143"	protein="15"	fat="5"	glycemicIndex="98"  type="vegetable"/>
+  <item id="tomatoe"	label="Pomidor"	mass="100" 	calories="258"	carbohydrate="56"	protein="14"	fat="3"	glycemicIndex="22"  type="vegetable"/>
+  <item id="plum"	label="Sliwka"	mass="165" 	calories="76"	carbohydrate="19"	protein="1"	fat="0"	glycemicIndex="5"  type="fruit"/>
+  <item id="doughnut"	label="Paczek"	mass="100" 	calories="399"	carbohydrate="51"	protein="6"	fat="19"	glycemicIndex="29" type="candy"/>
+  <item id="milk"	label="Mleko"	mass="244" 	calories="146"	carbohydrate="13"	protein="8"	fat="8"	glycemicIndex="9" type="drink"/>
+  <item id="almondnuts"	label="Migdaly"	mass="145" 	calories="842"	carbohydrate="29"	protein="32"	fat="73"	glycemicIndex="0" type="vegetable"/>
+  <item id="cashewnuts"	label="Orzechy nerkowca"	mass="100" 	calories="553"	carbohydrate="33"	protein="18"	fat="44"	glycemicIndex="11" type="vegetable"/>
+  <item id="coconutmilk"	label="Mleko kokosowe"	mass="240" 	calories="552"	carbohydrate="13"	protein="5"	fat="57"	glycemicIndex="5" type="vegetable"/>
+  <item id="pecans"	label="Orzesznik jadalny"	mass="109" 	calories="753"	carbohydrate="15"	protein="10"	fat="18"	glycemicIndex="0" type="vegetable"/>
+  <item id="pistachio"	label="Pistacje"	mass="123" 	calories="685"	carbohydrate="34"	protein="25"	fat="55"	glycemicIndex="5" type="vegetable"/>
+  <item id="walnuts"	label="Orzechy wloskie"	mass="125" 	calories="773"	carbohydrate="12"	protein="30"	fat="74"	glycemicIndex="0" type="vegetable"/>
+  <item id="rabbit"	label="Krolik"	mass="299" 	calories="517"	carbohydrate="0"	protein="99"	fat="10"	glycemicIndex="0" type="meat"/>
+  <item id="coffee"	label="Kawa"	mass="30" 	calories="1"	carbohydrate="34"	protein="0"	fat="1"	glycemicIndex="8" type="drink"/>
+  <item id="avocado"	label="Awokado"	mass="150" 	calories="240"	carbohydrate="13"	protein="3"	fat="22"	glycemicIndex="3" type="fruit"/>
+  <item id="grapefruit"	label="Grejpfrut"	mass="230" 	calories="76"	carbohydrate="19"	protein="2"	fat="0"	glycemicIndex="5" type="fruit"/>
+  <item id="duck"	label="Kaczka"	mass="137" 	calories="181"	carbohydrate="0"	protein="25"	fat="8"	glycemicIndex="0" type="meat"/>
+  <item id="olive"	label="Oliwa z oliwek"	mass="28" 	calories="248"	carbohydrate="0"	protein="0"	fat="28"	glycemicIndex="0" type="vegetable"/>
+  <item id="cola"	label="Coca-Cola"	mass="345" 	calories="150"	carbohydrate="41"	protein="0"	fat="0"	glycemicIndex="9" type="drink"/>
+  <item id="cucumber"	label="Ogorek"	mass="100" 	calories="15"	carbohydrate="4"	protein="1"	fat="0"	glycemicIndex="1" type="vegetable"/>
+  <item id="honey"	label="Miod"	mass="100" 	calories="304"	carbohydrate="82"	protein="0"	fat="0"	glycemicIndex="50" type="candy"/>
+  <item id="applepie"	label="Szarlotka"	mass="125" 	calories="296"	carbohydrate="42"	protein="2"	fat="14"	glycemicIndex="21" type="candy"/>
+  <item id="strawberry"	label="Truskawka"	mass="152" 	calories="49"	carbohydrate="12"	protein="1"	fat="0"	glycemicIndex="3" type="fruit"/>
+  <item id="scrambledegg"	label="Jajecznica"	mass="94" 	calories="199"	carbohydrate="2"	protein="13"	fat="15"	glycemicIndex="2" type="breakfastfood,supperfood"/>
+  <item id="pancake"	label="Nalesniki"	mass="232" 	calories="520"	carbohydrate="91"	protein="8"	fat="14"	glycemicIndex="52" type="breakfastfood,supperfood"/>
+  <item id="hamcheeseloaf"	label="Kanapki z szynka i serem"	mass="100" 	calories="241"	carbohydrate="4"	protein="14"	fat="19"	glycemicIndex="3" type="supperfood"/>
+  <item id="hashbrown"	label="Placki ziemniaczane"	mass="156" 	calories="413"	carbohydrate="55"	protein="5"	fat="20"	glycemicIndex="27" type="dinnerfood"/>
+  <item id="pepperonipizza"	label="Pizza pepperoni"	mass="137" 	calories="360"	carbohydrate="35"	protein="17"	fat="17"	glycemicIndex="17" type="dinnerfood"/>
+  <item id="tortellini"	label="Makaron z serem"	mass="81" 	calories="249"	carbohydrate="38"	protein="11"	fat="6"	glycemicIndex="22" type="dinnerfood,supperfood,breakfastfood"/>
+  <item id="cheesepizza"	label="Pizza serowa"	mass="159" 	calories="374"	carbohydrate="54"	protein="15"	fat="11"	glycemicIndex="28" type="dinnerfood"/>
+  <item id="vegepizza"	label="Pizza wegetarianska"	mass="204" 	calories="441"	carbohydrate="57"	protein="19"	fat="16"	glycemicIndex="28" type="dinnerfood"/>
+  <item id="havaipizza"	label="Pizza hawajska"	mass="204" 	calories="448"	carbohydrate="57"	protein="21"	fat="16"	glycemicIndex="29" type="dinnerfood"/>
+  <item id="applejuice"	label="Sok jablkowy"	mass="248" 	calories="114"	carbohydrate="28"	protein="0"	fat="0"	glycemicIndex="6" type="drink"/>
+  <item id="orangejuice"	label="Sok pomaranczowy"	mass="249" 	calories="134"	carbohydrate="33"	protein="0"	fat="0"	glycemicIndex="9" type="drink"/>
+  <item id="carrotjuice"	label="Sok marchewkowy"	mass="236" 	calories="94"	carbohydrate="22"	protein="2"	fat="0"	glycemicIndex="8" type="drink"/>
+  <item id="grapefruitjuice"	label="Sok grejpfrutowy"	mass="247" 	calories="94"	carbohydrate="22"	protein="1"	fat="0"	glycemicIndex="7" type="drink"/>
+  <item id="water"	label="Woda"	mass="237" 	calories="0"	carbohydrate="0"	protein="0"	fat="0"	glycemicIndex="0" type="drink"/>
+  <item id="oatmeal"	label="Owsianka"	mass="28" 	calories="375"	carbohydrate="68"	protein="13"	fat="6"	glycemicIndex="39" type="breakfastfood,supperfood"/>
+  <item id="cereals"	label="Platki sniadaniowe"	mass="242" 	calories="146"	carbohydrate="31"	protein="3"	fat="0"	glycemicIndex="14" type="breakfastfood,supperfood"/>
 </config>

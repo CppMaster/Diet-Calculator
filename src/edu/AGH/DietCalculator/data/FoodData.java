@@ -1,5 +1,8 @@
 package edu.AGH.DietCalculator.data;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class FoodData {
 
 	String id;
@@ -11,7 +14,13 @@ public class FoodData {
 	float fat;
 	float glycemicIndex;
     private String name;
+    List<String> types;
 
+    FoodData()
+    {
+    	types = new LinkedList<String>();
+    }
+    
     public String getId() {
 		return id;
 	}
@@ -75,5 +84,20 @@ public class FoodData {
 
     public String getName() {
         return name;
+    }
+    
+    public void AddType(String type)
+    {
+    	types.add(type);
+    }
+    
+    public List<String> GetTypes()
+    {
+    	return types;
+    }
+    
+    public boolean IsOfType(String type)
+    {
+    	return types.contains(type);
     }
 }
