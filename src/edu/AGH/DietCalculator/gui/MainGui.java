@@ -1,22 +1,38 @@
 package edu.AGH.DietCalculator.gui;
 
-import java.awt.*;
+import java.awt.Button;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
+import java.awt.Choice;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import edu.AGH.DietCalculator.data.Database;
-import edu.AGH.DietCalculator.data.FoodData;
-import edu.AGH.DietCalculator.data.MealData;
 import edu.AGH.DietCalculator.data.PersonalData;
-import edu.AGH.DietCalculator.diet.*;
+import edu.AGH.DietCalculator.diet.Diet;
+import edu.AGH.DietCalculator.diet.DietParameters;
+import edu.AGH.DietCalculator.diet.DietPenalty;
+import edu.AGH.DietCalculator.diet.GeneticAlgorithmParameters;
+import edu.AGH.DietCalculator.diet.GeneticDietCreator;
 
 public class MainGui 
 {
@@ -158,15 +174,14 @@ public class MainGui
 		{
 			Panel panel = new Panel();
 			
-			panel.add(new Label("Diabetes [0-100]"));
-			
-			TextField diabetes = new TextField("50");
+			Checkbox diabetes = new Checkbox("Diabetes", false);
 			panel.add(diabetes);
-			diabetes.addTextListener(new TextListener() {
+			diabetes.addItemListener(new ItemListener() {
 				
 				@Override
-				public void textValueChanged(TextEvent arg0) {
-					data.setDiabetes(Float.parseFloat(((TextField)arg0.getSource()).getText()) / 100.f);
+				public void itemStateChanged(ItemEvent arg0) {
+					data.setDiabetes(((Checkbox)arg0.getSource()).getState() ? 1f : 0f);
+					
 				}
 			});
 			

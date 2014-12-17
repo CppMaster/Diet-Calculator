@@ -42,6 +42,11 @@ public class Meal {
     public float getCalories() {
         return (float) foods.stream().mapToDouble(FoodPortion::getCalories).sum();
     }
+    
+    public float getMass()
+    {
+    	return (float) foods.stream().mapToDouble(FoodPortion::getMass).sum();
+    }
 
     public Meal Clone() {
         Meal clone = new Meal(mealData);

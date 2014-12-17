@@ -40,6 +40,11 @@ public class Diet {
     public float getFats() {
         return (float) meals.stream().mapToDouble(Meal::getFats).sum();
     }
+    
+    public float getMass()
+    {
+    	return (float) meals.stream().mapToDouble(Meal::getMass).sum();
+    }
 
     public int CountRepeatingFoods()
     {

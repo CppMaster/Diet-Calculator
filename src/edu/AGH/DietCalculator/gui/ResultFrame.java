@@ -1,6 +1,7 @@
 package edu.AGH.DietCalculator.gui;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
@@ -8,13 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 
-import edu.AGH.DietCalculator.data.FoodData;
 import edu.AGH.DietCalculator.diet.Diet;
 import edu.AGH.DietCalculator.diet.FoodPortion;
 import edu.AGH.DietCalculator.diet.Meal;
@@ -108,7 +109,7 @@ public class ResultFrame extends Frame
         int totalFoodItems = diet.meals.stream().mapToInt(meal -> meal.foods.size()).sum();
 		ids = new String[totalFoodItems];
 		
-		Object[][] data = new Object[totalFoodItems][];
+		Object[][] data = new Object[totalFoodItems + 1][];
 		
 		Object[] labels = new Object[columnCount];
 		labels[0] = "Name";
@@ -119,7 +120,7 @@ public class ResultFrame extends Frame
 		labels[5] = "Fat";
 		labels[6] = "Glicemic Wage";
 		labels[7] = "Meal";
-
+		
         int row = 0;
         int mealNumber = 1;
         for (Meal meal : diet.meals) {
@@ -138,9 +139,18 @@ public class ResultFrame extends Frame
             }
             mealNumber++;
         }
+        
+        data[totalFoodItems] = new Object[columnCount];
+        data[totalFoodItems][0] = "Summary";
+        data[totalFoodItems][1] = diet.getMass();
+        data[totalFoodItems][2] = diet.getCalories();
+        data[totalFoodItems][3] = diet.getCarbohydrates();
+        data[totalFoodItems][4] = diet.getProteins();
+        data[totalFoodItems][5] = diet.getFats();
 		
 		if(scrollPane != null) remove(scrollPane);
 		dietTable = new JTable(data, labels);
+		dietTable.setDefaultRenderer(Object.class, new MonCellRenderer());
 		scrollPane = new JScrollPane(dietTable);
 		scrollPane.setBounds(10, 100, 580, 320);
 		add(scrollPane);
@@ -165,4 +175,15 @@ public class ResultFrame extends Frame
 		System.out.println();
 	}
 	
+	public class MonCellRenderer extends DefaultTableCellRenderer
+	{
+		@Override
+		public Component getTableCellRendererComponent(JTable arg0, Object arg1,
+				boolean arg2, boolean arg3, int arg4, int arg5) {
+			super.getTableCellRendererComponent(arg0, arg1, arg2, arg3, arg4, arg5);
+			setBackground(arg4 == arg0.getRowCount() - 1 ? Color.lightGray : Color.white);
+			return this;
+		}
+		
+	}
 }
