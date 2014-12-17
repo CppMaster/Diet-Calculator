@@ -219,15 +219,14 @@ public class MainGui
         
         //Algorithm
 
-        //TODO: fill these variables according to user needs
         float targetProteins = data.ProteinNeeded();
         float targetCarbohydrates = data.CarbohydrateNeeded();
         float targetFats = data.FatNeeded();
 
         List<DietPenalty> penalties = GetDietPenalties(caloriesNeeded, targetProteins, targetCarbohydrates, targetFats);
-        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 5, database.GetFoods(), penalties);
+        DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 5, database, penalties);
 
-        double mutationRate = 0.02;
+        double mutationRate = 0.05;
         int populationSize = 500;
         int iterations = 70;
         GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(mutationRate, populationSize);
@@ -238,7 +237,6 @@ public class MainGui
         }
         Diet diet = geneticDietCreator.GenerateDiet(iterations);
         System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
-
 
         if(resultFrame == null) resultFrame = new ResultFrame();
         resultFrame.mainGui = this;

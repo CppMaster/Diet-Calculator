@@ -16,6 +16,7 @@ import javax.swing.JTable;
 
 import edu.AGH.DietCalculator.data.FoodData;
 import edu.AGH.DietCalculator.diet.Diet;
+import edu.AGH.DietCalculator.diet.FoodPortion;
 import edu.AGH.DietCalculator.diet.Meal;
 
 @SuppressWarnings("serial")
@@ -122,7 +123,7 @@ public class ResultFrame extends Frame
         int row = 0;
         int mealNumber = 1;
         for (Meal meal : diet.meals) {
-            for (FoodData food : meal.foods) {
+            for (FoodPortion food : meal.foods) {
                 data[row] = new Object[columnCount];
                 data[row][0] = food.getLabel();
                 data[row][1] = food.getMass();

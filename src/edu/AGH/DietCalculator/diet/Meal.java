@@ -1,6 +1,7 @@
 package edu.AGH.DietCalculator.diet;
 
 import edu.AGH.DietCalculator.data.FoodData;
+import edu.AGH.DietCalculator.data.MealData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,14 @@ import java.util.List;
  * Created by krzysiek on 2014-12-11.
  */
 public class Meal {
-    public List<FoodData> foods = new ArrayList<>();
+    public MealData mealData;
+    public List<FoodPortion> foods = new ArrayList<FoodPortion>();
 
     private String name;
+
+    public Meal(MealData mealData) {
+        this.mealData = mealData;
+    }
 
     @Override
     public String toString() {
@@ -30,29 +36,29 @@ public class Meal {
     }
 
     public float getGlycemicLoad() {
-        return (float) foods.stream().mapToDouble(FoodData::getGlycemicIndex).sum();
+        return (float) foods.stream().mapToDouble(FoodPortion::getGlycemicIndex).sum();
     }
 
     public float getCalories() {
-        return (float) foods.stream().mapToDouble(FoodData::getCalories).sum();
+        return (float) foods.stream().mapToDouble(FoodPortion::getCalories).sum();
     }
 
     public Meal Clone() {
-        Meal clone = new Meal();
+        Meal clone = new Meal(mealData);
         clone.name = name;
-        for (FoodData food : foods) {
-            clone.foods.add(food);
+        for (FoodPortion food : foods) {
+            clone.foods.add(food.Clone());
         }
         return clone;
     }
 
     public float getProteins() {
-        return (float) foods.stream().mapToDouble(FoodData::getProtein).sum();
+        return (float) foods.stream().mapToDouble(FoodPortion::getProtein).sum();
     }
     public float getCarbohydrates() {
-        return (float) foods.stream().mapToDouble(FoodData::getCarbohydrate).sum();
+        return (float) foods.stream().mapToDouble(FoodPortion::getCarbohydrate).sum();
     }
     public float getFats() {
-        return (float) foods.stream().mapToDouble(FoodData::getFat).sum();
+        return (float) foods.stream().mapToDouble(FoodPortion::getFat).sum();
     }
 }

@@ -1,12 +1,11 @@
 package edu.AGH.DietCalculator.diet;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import edu.AGH.DietCalculator.data.FoodData;
+import edu.AGH.DietCalculator.data.MealData;
 
 /**
  * Created by krzysiek on 2014-12-11.
@@ -37,9 +36,9 @@ public class GeneticDietCreator {
             return MutateSwapFood(diet);
         }
         if (random < 2.0/3) {
-            return MutateRemoveFood(diet);
+            return MutateMoreFood(diet);
         }
-        return MutateAddFood(diet);
+        return MutateLessFood(diet);
     }
 
     private Diet MutateSwapFood(Diet diet) {
@@ -47,10 +46,10 @@ public class GeneticDietCreator {
         if (meal.foods.isEmpty())
             return diet;
 
-        FoodData oldFood = RandomElement(meal.foods);
-        FoodData newFood = RandomElement(dietParameters.foods);
-        meal.foods.remove(oldFood);
-        meal.foods.add(newFood);
+        int oldFoodIndex = generator.nextInt(meal.foods.size());
+        String foodType = meal.mealData.GetTypes().get(oldFoodIndex);
+        FoodPortion newFood = RandomFood(foodType);
+        meal.foods.set(oldFoodIndex, newFood);
         return diet;
     }
 
@@ -58,20 +57,19 @@ public class GeneticDietCreator {
         return generator.nextDouble();
     }
 
-    private Diet MutateAddFood(Diet diet) {
+    private Diet MutateLessFood(Diet diet) {
         Meal meal = RandomElement(diet.meals);
-        FoodData food = RandomElement(dietParameters.foods);
-        if (!meal.foods.contains(food)) {
-            meal.foods.add(food);
+        FoodPortion food = RandomElement(meal.foods);
+        if (food.portion >= 0.5) {
+            food.portion -= 0.5;
         }
         return diet;
     }
 
-    private Diet MutateRemoveFood(Diet diet) {
+    private Diet MutateMoreFood(Diet diet) {
         Meal meal = RandomElement(diet.meals);
-        if (!meal.foods.isEmpty()) {
-            meal.foods.remove(RandomElement(meal.foods));
-        }
+        FoodPortion food = RandomElement(meal.foods);
+        food.portion += 0.5;
         return diet;
     }
 
@@ -112,21 +110,30 @@ public class GeneticDietCreator {
         return champion;
     }
 
-    private Diet RandomDiet(int meals) {
+    public Diet RandomDiet(int meals) {
         Diet diet = new Diet(meals);
         for (int i = 0; i < meals; i++) {
-            int foods = generator.nextInt(3) + 1;
-            diet.meals.add(RandomMeal(foods));
+            List<MealData> mealTemplates = dietParameters.database.GetMeals(i + 1);
+            MealData mealTemplate = RandomElement(mealTemplates);
+            diet.meals.add(RandomMeal(mealTemplate));
         }
         return diet;
     }
 
-    private Meal RandomMeal(int foods) {
-        Meal meal = new Meal();
-        for (int i = 0; i < foods; i++) {
-            meal.foods.add(RandomElement(dietParameters.foods));
+    private Meal RandomMeal(MealData mealTemplate) {
+        Meal meal = new Meal(mealTemplate);
+        for (String foodType : mealTemplate.GetTypes()) {
+            meal.foods.add(RandomFood(foodType));
         }
         return meal;
+    }
+
+    private FoodPortion RandomFood(String foodType) {
+        List<FoodData> foodsOfType = dietParameters.database.GetFood(foodType);
+        FoodData foodData = RandomElement(foodsOfType);
+        FoodPortion food = new FoodPortion(foodData);
+        food.portion = 0.5f * (generator.nextInt(3) + 1);
+        return food;
     }
 
     private List<Diet> GenerateRandomPopulation() {
