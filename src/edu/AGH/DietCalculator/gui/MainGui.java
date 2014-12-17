@@ -252,6 +252,7 @@ public class MainGui
         float proteinsWeight = 0.2f;
         float carbohydratesWeight = 0.3f;
         float fatsWeight = 0.2f;
+        float repeatingFoodsWeight = 20;
 
       List<DietPenalty> penalties = new ArrayList<DietPenalty>();
         penalties.add(diet -> caloriesWeight * Math.abs(targetCalories - diet.getCalories()));
@@ -259,6 +260,7 @@ public class MainGui
         penalties.add(diet -> proteinsWeight * Math.abs(targetProteins - diet.getProteins()));
         penalties.add(diet -> carbohydratesWeight * Math.abs(targetCarbohydrates - diet.getCarbohydrates()));
         penalties.add(diet -> fatsWeight * Math.abs(targetFats - diet.getFats()));
+        penalties.add(diet -> repeatingFoodsWeight * diet.CountRepeatingFoods());
       return penalties;
     }
     

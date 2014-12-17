@@ -3,7 +3,9 @@ package edu.AGH.DietCalculator.diet;
 import edu.AGH.DietCalculator.data.FoodData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.BinaryOperator;
 
 /**
  * Created by krzysiek on 2014-12-11.
@@ -37,5 +39,19 @@ public class Diet {
     }
     public float getFats() {
         return (float) meals.stream().mapToDouble(Meal::getFats).sum();
+    }
+
+    public int CountRepeatingFoods()
+    {
+        HashMap<String, Integer> counts = new HashMap<>();
+        for (Meal meal : meals){
+            for (FoodPortion food : meal.foods) {
+                int count = counts.getOrDefault(food.getLabel(), 0);
+                counts.put(food.getLabel(), count + 1);
+            }
+        }
+
+        int multiple = counts.values().stream().reduce(0, (acc, val) -> acc + val - 1);
+        return multiple;
     }
 }

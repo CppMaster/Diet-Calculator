@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<meal number="1" >
+        <food type="breakfastfood"/>
 		<food type="fruit"/>
 		<food type="drink"/>
-		<food type="breakfastfood"/>
+	</meal>
+	<meal number="2" >
+        <food type="breakfastfood"/>
+		<food type="fruit"/>
+		<food type="drink"/>
 	</meal>
 	<meal number="2" >
 		<food type="fruit"/>
+        <food type="candy"/>
 		<food type="drink"/>
-		<food type="breakfastfood"/>
 	</meal>
-	<meal number="2" >
-		<food type="fruit"/>
-		<food type="drink"/>
-		<food type="candy"/>
-	</meal>
+    <meal number="2" >
+        <food type="vegetable"/>
+        <food type="drink"/>
+    </meal>
+    <meal number="2" >
+        <food type="vegetable"/>
+        <food type="candy"/>
+        <food type="drink"/>
+    </meal>
 	<meal number="3" >
 		<food type="meat"/>
-		<food type="vegetable"/>
+		<food type="dinnercarbo"/>
 		<food type="drink"/>
 	</meal>
 	<meal number="3" >
@@ -26,7 +35,7 @@
 	</meal>
 	<meal number="4" >
 		<food type="meat"/>
-		<food type="vegetable"/>
+		<food type="dinnercarbo"/>
 		<food typr="drink"/>
 	</meal>
 	<meal number="4" >
@@ -34,9 +43,17 @@
 		<food type="drink"/>
 	</meal>
 	<meal number="4" >
+        <food type="candy"/>
 		<food type="drink"/>
-		<food type="candy"/>
 	</meal>
+    <meal number="4" >
+        <food type="vegetable"/>
+        <food type="drink"/>
+    </meal>
+    <meal number="4" >
+        <food type="fruit"/>
+        <food type="drink"/>
+    </meal>
 	<meal number="5" >
 		<food type="supperfood"/>
 		<food type="vegetable"/>
