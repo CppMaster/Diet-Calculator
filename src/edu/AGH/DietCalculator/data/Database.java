@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -21,6 +22,36 @@ public class Database {
 	HashMap<String, FoodData> data;
 	HashMap<String, List<FoodData>> dataByType;
 	HashMap<Integer, List<MealData>> mealData;
+	Set<String> bans;
+	
+	public void setBans(Set<String> bans) {
+		this.bans = bans;
+		for(String ban : bans)
+		{
+			FoodData toBan = data.get(ban);
+			if(toBan != null)
+			{
+				boolean canBeRemoved = true;
+				for(List<FoodData> list : dataByType.values())
+				{
+					if(list.contains(toBan) && list.size() <= 1)
+					{
+						canBeRemoved = false;
+						break;
+					}
+				}
+				
+				if(canBeRemoved)
+				{
+					data.remove(toBan);
+					for(List<FoodData> list : dataByType.values())
+					{
+						list.remove(toBan);
+					}
+				}
+			}
+		}
+	}
 
 	public boolean LoadData(String path) {
 		data = new HashMap<String, FoodData>();

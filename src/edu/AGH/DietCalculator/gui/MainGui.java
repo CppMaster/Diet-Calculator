@@ -239,6 +239,7 @@ public class MainGui
         float targetFats = data.FatNeeded();
 
         List<DietPenalty> penalties = GetDietPenalties(caloriesNeeded, targetProteins, targetCarbohydrates, targetFats);
+        database.setBans(bans);
         DietParameters dietParameters = new DietParameters((int)caloriesNeeded, 5, database, penalties);
 
         double mutationRate = 0.05;
@@ -246,10 +247,7 @@ public class MainGui
         int iterations = 70;
         GeneticAlgorithmParameters geneticAlgorithmParameters = new GeneticAlgorithmParameters(mutationRate, populationSize);
         GeneticDietCreator geneticDietCreator = new GeneticDietCreator(dietParameters, geneticAlgorithmParameters);
-        for(String ban : bans)
-        {
-        	geneticDietCreator.AddBan(ban);
-        }
+  
         Diet diet = geneticDietCreator.GenerateDiet(iterations);
         System.out.println(Arrays.toString(geneticDietCreator.GetChampionRatings()));
 

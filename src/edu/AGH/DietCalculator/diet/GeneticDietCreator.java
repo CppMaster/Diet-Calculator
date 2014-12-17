@@ -182,16 +182,4 @@ public class GeneticDietCreator {
         return champions.stream().mapToDouble(ch -> RateDiet(ch)).toArray();
     }
     
-    public void AddBan(String id)
-    {
-    	for(int a = 0; a < dietParameters.foods.size(); ++a)
-    	{
-    		if(dietParameters.foods.get(a).getId().equals(id))
-    		{
-    			dietParameters.foods.remove(a);
-    			return;
-    		}
-    	}
-    }
-    
 }
